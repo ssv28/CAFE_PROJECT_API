@@ -86,7 +86,6 @@ exports.adminUpdate = async function (req, res, next) {
     }
 }
 
-
 exports.adminFind = async function (req, res, next) {
     try {
 
