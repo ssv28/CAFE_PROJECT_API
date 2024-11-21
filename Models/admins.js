@@ -9,10 +9,10 @@ const AdminData = new Schema({
     },
     email: {
         type: String,
-        required: true,
+        required: [true, "Please Enter Email Address."],
         trim: true,
         lowercase: true,
-        unique: [true, "Email is Already Use.Please Enter New Email Address."],
+        unique: true,
     },
     password: {
         type: String,

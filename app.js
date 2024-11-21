@@ -10,7 +10,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/cafeDB')
   .then(() => console.log('Connected!'))
   .catch((err) => console.log(err.message))
 
-var indexRouter = require('./routes/index');
+var tableRouter = require('./routes/table');
 var adminRouter = require('./routes/admin');
 
 var app = express();
@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/table', tableRouter);
 app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler
