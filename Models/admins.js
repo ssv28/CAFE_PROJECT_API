@@ -4,11 +4,14 @@ const Schema = mongoose.Schema;
 const AdminData = new Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        trim: true,
     },
     email: {
         type: String,
         required: true,
+        trim: true,
+        lowercase: true,
         unique: [true, "Email is Already Use.Please Enter New Email Address."],
     },
     password: {
