@@ -89,7 +89,7 @@ exports.adminUpdate = async function (req, res, next) {
 exports.adminFind = async function (req, res, next) {
     try {
 
-        const { search } = req.query;
+        const search = req.query.search
 
         let query = {};
         if (search) {
@@ -102,10 +102,10 @@ exports.adminFind = async function (req, res, next) {
             };
         }
 
-        console.log("Query:", query);
+        console.log("====>>>:", query);
 
         const adminFind = await ADMIN.find(query);
-        console.log("Found Admins:", adminFind);
+        console.log("Found===>>>:", adminFind);
 
         res.status(200).json({
             status: "success",
