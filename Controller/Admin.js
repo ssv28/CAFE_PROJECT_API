@@ -89,6 +89,19 @@ exports.adminUpdate = async function (req, res, next) {
 exports.adminFind = async function (req, res, next) {
     try {
 
+        const { search } = req.query;
+
+        let query = {};
+        if (search) {
+            query = {
+                $or: [
+                    { name: { $regex: search, $options: 'i' } },
+                    { email: { $regex: search, $options: 'i' } },
+                    { role: { $regex: search, $options: 'i' } }
+                ]
+            };
+        }
+
         let adminFind = await ADMIN.find()
         res.status(200).json({
             status: "success",
@@ -109,7 +122,7 @@ exports.adminDelete = async function (req, res, next) {
 
         let findAdmin = await ADMIN.findById(req.params.id)
         if (!findAdmin) {
-          throw new Error("Admin is Already Delete")
+            throw new Error("Admin is Already Delete")
         }
 
         await ADMIN.findByIdAndDelete(req.params.id)
@@ -125,3 +138,4 @@ exports.adminDelete = async function (req, res, next) {
         })
     }
 }
+
