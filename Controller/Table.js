@@ -36,7 +36,7 @@ exports.tableUpdate = async function (req, res, next) {
 exports.tableFind = async function (req, res, next) {
     try {
 
-        let tableFind = await TABLE.find()
+        let tableFind = await TABLE.find().populate("reservation")
         res.status(200).json({
             status: "success",
             message: "Table Found success",

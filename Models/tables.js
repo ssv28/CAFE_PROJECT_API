@@ -6,21 +6,22 @@ const tableSchema = new Schema({
         type: Number,
         required: true,
         trim: true,
+        unique: true
     },
     capacity: {
         type: Number,
         required: true,
         trim: true,
     },
-    isOccupied: {
-        type: Boolean,
-        required: true,
-        trim: true,
+    status: {
+        type: String,
+        enum: ['available', 'reserved', 'occupied', 'unavailable'], 
+        default: 'available',
     },
     reservation: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        // ref: "reservation"
+        ref: "Reservation",
+        required: true
     }
 });
 
