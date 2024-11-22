@@ -102,7 +102,11 @@ exports.adminFind = async function (req, res, next) {
             };
         }
 
-        let adminFind = await ADMIN.find()
+        console.log("Query:", query);
+
+        const adminFind = await ADMIN.find(query);
+        console.log("Found Admins:", adminFind);
+
         res.status(200).json({
             status: "success",
             message: "Admin Found success",
