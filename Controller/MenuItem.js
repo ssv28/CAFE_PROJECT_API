@@ -59,7 +59,7 @@ exports.menuDelete = async (req, res, next) => {
 
 exports.manuUpdate = async (req, res, next) => {
     try {
-        let updateMenu = await Menu.findByIdAndUpdate(req.params.id)
+        let updateMenu = await Menu.findByIdAndUpdate(req.params.id, req.body, { new: true })
         res.status(200).json ({
             status : "Success",
             message : "MenuItem Updated!",
