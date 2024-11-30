@@ -61,7 +61,7 @@ exports.orderDelete = async (req, res, next) => {
 
 exports.orderUpdate = async (req, res, next) => {
     try {
-        let orderUpdate = Order.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        let orderUpdate = await Order.findByIdAndUpdate(req.params.id, req.body, { new: true })
         res.status(200).json({
             status: 'Success',
             message: 'Order Successfully Edited!',

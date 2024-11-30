@@ -16,6 +16,7 @@ var reservationRouter = require('./routes/reservation');
 var clientRouter = require('./routes/client');
 var menuRouter = require('./routes/menuItem');
 var orderRouter = require('./routes/order');
+var paymentRouter = require('./routes/payment');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use('/admin', adminRouter);
 app.use('/client', clientRouter);
 app.use('/menuItem', menuRouter);
 app.use('/order', orderRouter);
+app.use('/payment', paymentRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
