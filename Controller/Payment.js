@@ -38,7 +38,7 @@ exports.deletePayment = async (req, res, next) => {
         let paymentFind = await Payment.findById(req.params.id)
 
         if (!paymentFind) {
-            throw new Error("This Payment Already Deleted!");
+            throw new Error("This Payment Is Already Deleted!");
         }
 
         await Payment.findByIdAndDelete(req.params.id)
