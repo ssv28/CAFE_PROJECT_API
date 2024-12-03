@@ -20,7 +20,7 @@ const AdminData = new Schema({
     },
     role: {
         type: String,
-        enum: ['suparadmin', 'admin', 'manager'],
+        enum: ['admin', 'manager'],
         default: "admin",
         required: true
     }
